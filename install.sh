@@ -103,29 +103,29 @@ _task "update nameservers"
     _cmd 'echo "nameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
 
 # description
-_task "update ntp servers"
-    _cmd 'truncate -s0 /etc/systemd/timesyncd.conf'
-    _cmd 'echo "[Time]" | sudo tee -a /etc/systemd/timesyncd.conf'
-    _cmd 'echo "NTP=time.cloudflare.com" | sudo tee -a /etc/systemd/timesyncd.conf'
-    _cmd 'echo "FallbackNTP=ntp.ubuntu.com" | sudo tee -a /etc/systemd/timesyncd.conf'
+#_task "update ntp servers"
+    #_cmd 'truncate -s0 /etc/systemd/timesyncd.conf'
+    #_cmd 'echo "[Time]" | sudo tee -a /etc/systemd/timesyncd.conf'
+    #_cmd 'echo "NTP=time.cloudflare.com" | sudo tee -a /etc/systemd/timesyncd.conf'
+    #_cmd 'echo "FallbackNTP=ntp.ubuntu.com" | sudo tee -a /etc/systemd/timesyncd.conf'
 
 # description
 _task "update sysctl.conf"
-    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/conduro/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
+    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
 
 # description
 _task "update sshd_config"
-    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/conduro/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
+    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
 
 # description
-_task "disable system logging"
-    _cmd 'systemctl stop systemd-journald.service'
-    _cmd 'systemctl disable systemd-journald.service'
-    _cmd 'systemctl mask systemd-journald.service'
+#_task "disable system logging"
+    #_cmd 'systemctl stop systemd-journald.service'
+    #_cmd 'systemctl disable systemd-journald.service'
+    #_cmd 'systemctl mask systemd-journald.service'
 
-    _cmd 'systemctl stop rsyslog.service'
-    _cmd 'systemctl disable rsyslog.service'
-    _cmd 'systemctl mask rsyslog.service'
+    #_cmd 'systemctl stop rsyslog.service'
+    #_cmd 'systemctl disable rsyslog.service'
+    #_cmd 'systemctl mask rsyslog.service'
 
 # description
 _task "disable snapd"
@@ -157,8 +157,8 @@ _task "configure firewall"
 
 # description
 _task "free disk space"
-    _cmd 'find /var/log -type f -delete'
-    _cmd 'rm -rf /usr/share/man/*'
+    #_cmd 'find /var/log -type f -delete'
+    #_cmd 'rm -rf /usr/share/man/*'
     _cmd 'apt-get autoremove -y'
     _cmd 'apt-get autoclean -y'
     # _cmd "purge" 'apt-get remove --purge -y'
