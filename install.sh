@@ -77,8 +77,8 @@ _task "update dependencies"
     _cmd 'apt-get install wget sed git -y'
 
 # description
-_task "update system"
-    _cmd 'apt-get update -y && apt-get full-upgrade -y'
+_task "not updating system"
+    #_cmd 'apt-get update -y && apt-get full-upgrade -y'
 
 # finish last task
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
