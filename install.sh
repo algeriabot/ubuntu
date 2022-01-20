@@ -99,7 +99,7 @@ fi
 # description
 _task "update nameservers"
     _cmd 'truncate -s0 /etc/resolv.conf'
-    _cmd 'echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf'
+    _cmd 'echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf'
     _cmd 'echo "nameserver 1.0.0.1" | sudo tee -a /etc/resolv.conf'
 
 # description
