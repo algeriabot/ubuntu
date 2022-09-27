@@ -176,7 +176,7 @@ _task "reload system"
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
 
 # remove conduro.log
-rm conduro.log
+# rm conduro.log #I changed this
 
 # reboot
 printf "\n${YELLOW} Do you want to reboot [Y/n]? ${RESTORE}"
