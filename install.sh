@@ -111,11 +111,13 @@ _task "update nameservers"
 
 # description
 _task "update sysctl.conf"
-    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
+    _cmd 'cp /etc/sysctl.conf ~/sysctl.conf.bak'
+    _cmd 'wget -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
 
 # description
 _task "update sshd_config"
-    _cmd 'wget --timeout=5 --tries=2 --quiet -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
+    _cmd 'cp /etc/ssh/sshd_config ~/sshd_config.bak'
+    _cmd 'wget -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
 
 # description
 #_task "disable system logging"
