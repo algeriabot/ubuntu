@@ -112,12 +112,12 @@ _task "update nameservers"
 # description
 _task "update sysctl.conf"
     _cmd 'cp /etc/sysctl.conf ~/sysctl.conf.bak'
-    _cmd 'wget -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
+    _cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
 
 # description
 _task "update sshd_config"
     _cmd 'cp /etc/ssh/sshd_config ~/sshd_config.bak'
-    _cmd 'wget -c https://raw.githubusercontent.com/t-ebag/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
+    _cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
 
 # description
 #_task "disable system logging"
@@ -163,8 +163,8 @@ _task "free disk space"
     #_cmd 'rm -rf /usr/share/man/*'
     _cmd 'apt-get autoremove -y'
     _cmd 'apt-get autoclean -y'
-    # _cmd "purge" 'apt-get remove --purge -y'
-    # _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
+    _cmd "purge" 'apt-get remove --purge -y'
+    _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
 
 # description
 _task "reload system"
@@ -196,10 +196,10 @@ exit 1
 #     _cmd 'systemctl mask multipathd'
 
 # # description
-# _task "disable cron"
-#     _cmd 'systemctl stop cron'
-#     _cmd 'systemctl disable cron'
-#     _cmd 'systemctl mask cron'
+_task "disable cron"
+     _cmd 'systemctl stop cron'
+     _cmd 'systemctl disable cron'
+     _cmd 'systemctl mask cron'
 
 # # description
 # _task "disable fwupd"
