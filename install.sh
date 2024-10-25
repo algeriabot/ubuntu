@@ -125,14 +125,14 @@ _task "update login.defs"
     _cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/login.defs -O /etc/login.defs'
 
 # description
-#_task "update common-auth"
-    #_cmd 'cp /etc/pam.d/common-auth ~/common-auth.bak'
-    #_cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-auth -O /etc/pam.d/common-auth'
+_task "update common-auth"
+    _cmd 'cp /etc/pam.d/common-auth ~/common-auth.bak'
+    _cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-auth -O /etc/pam.d/common-auth'
 
 # description
-#_task "update common-password"
-    #_cmd 'cp /etc/pam.d/common-password ~/common-password.bak'
-    #_cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-password -O /etc/pam.d/common-password'
+_task "update common-password"
+    _cmd 'cp /etc/pam.d/common-password ~/common-password.bak'
+    _cmd 'wget -c https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-password -O /etc/pam.d/common-password'
 
     
 
