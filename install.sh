@@ -84,17 +84,17 @@ _task "not updating system"
 printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
 
 # description
-printf "      ${YELLOW}Do you want to install Go? [Y/n]: ${RESTORE}"
-read prompt && printf "${OVERWRITE}" && if [[ $prompt == "y" || $prompt == "Y" ]]; then
-    _task "update golang"
-        _cmd 'rm -rf /usr/local/go'
-        _cmd 'wget --timeout=5 --tries=2 --quiet -c https://dl.google.com/go/$(curl -s https://golang.org/VERSION?m=text).linux-amd64.tar.gz -O go.tar.gz'
-        _cmd 'tar -C /usr/local -xzf go.tar.gz'
-        _cmd 'echo "export GOROOT=/usr/local/go" >> /etc/profile'
-        _cmd 'echo "export PATH=/usr/local/go/bin:$PATH" >> /etc/profile'
-        _cmd 'source /etc/profile' 
-        _cmd 'rm go.tar.gz'
-fi
+#printf "      ${YELLOW}Do you want to install Go? [Y/n]: ${RESTORE}"
+#read prompt && printf "${OVERWRITE}" && if [[ $prompt == "y" || $prompt == "Y" ]]; then
+#    _task "update golang"
+#        _cmd 'rm -rf /usr/local/go'
+#        _cmd 'wget --timeout=5 --tries=2 --quiet -c https://dl.google.com/go/$(curl -s https://golang.org/VERSION?m=text).linux-amd64.tar.gz -O go.tar.gz'
+#        _cmd 'tar -C /usr/local -xzf go.tar.gz'
+#        _cmd 'echo "export GOROOT=/usr/local/go" >> /etc/profile'
+#        _cmd 'echo "export PATH=/usr/local/go/bin:$PATH" >> /etc/profile'
+#        _cmd 'source /etc/profile' 
+#        _cmd 'rm go.tar.gz'
+#fi
 
 # description
 _task "update nameservers"
@@ -147,10 +147,10 @@ _task "update common-password"
     #_cmd 'systemctl mask rsyslog.service'
 
 # description
-_task "disable snapd"
-    _cmd 'systemctl stop snapd.service'
-    _cmd 'systemctl disable snapd.service'
-    _cmd 'systemctl mask snapd.service'
+#_task "disable snapd"
+    #_cmd 'systemctl stop snapd.service'
+    #_cmd 'systemctl disable snapd.service'
+    #_cmd 'systemctl mask snapd.service'
 
 # firewall
 _task "configure firewall"
@@ -175,13 +175,13 @@ _task "configure firewall"
 
 
 # description
-_task "free disk space"
+_task "free disk space by cleaning apt"
     #_cmd 'find /var/log -type f -delete'
     #_cmd 'rm -rf /usr/share/man/*'
     _cmd 'apt-get autoremove -y'
     _cmd 'apt-get autoclean -y'
-    _cmd "purge" 'apt-get remove --purge -y'
-    _cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
+    #_cmd "purge" 'apt-get remove --purge -y'
+    #_cmd "clean" 'apt-get clean && sudo apt-get --purge autoremove -y'
 
 # description
 _task "reload system"
@@ -213,10 +213,10 @@ exit 1
 #     _cmd 'systemctl mask multipathd'
 
 # # description
-_task "disable cron"
-     _cmd 'systemctl stop cron'
-     _cmd 'systemctl disable cron'
-     _cmd 'systemctl mask cron'
+#_task "disable cron"
+#     _cmd 'systemctl stop cron'
+#     _cmd 'systemctl disable cron'
+#     _cmd 'systemctl mask cron'
 
 # # description
 # _task "disable fwupd"
