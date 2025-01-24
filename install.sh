@@ -109,30 +109,35 @@ _task "update nameservers"
     #_cmd 'echo "NTP=time.cloudflare.com" | sudo tee -a /etc/systemd/timesyncd.conf'
     #_cmd 'echo "FallbackNTP=ntp.ubuntu.com" | sudo tee -a /etc/systemd/timesyncd.conf'
 
-# description
+# sysctl.conf
 _task "update sysctl.conf"
     _cmd 'cp /etc/sysctl.conf ~/sysctl.conf.bak'
     _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/sysctl.conf -O /etc/sysctl.conf'
 
-# description
+# sshd_config
 _task "update sshd_config"
     _cmd 'cp /etc/ssh/sshd_config ~/sshd_config.bak'
     _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/sshd.conf -O /etc/ssh/sshd_config'
 
-# description
+# login.defs
 _task "update login.defs"
     _cmd 'cp /etc/login.defs ~/login.defs.bak'
     _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/login.defs -O /etc/login.defs'
 
-# description
+# common-auth
 _task "update common-auth"
     _cmd 'cp /etc/pam.d/common-auth ~/common-auth.bak'
     _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-auth -O /etc/pam.d/common-auth'
 
-# description
+# common-password
 _task "update common-password"
     _cmd 'cp /etc/pam.d/common-password ~/common-password.bak'
     _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/common-password -O /etc/pam.d/common-password'
+
+# sudoers
+_task "update sudoers"
+    _cmd 'cp /etc/sudoers ~/sudoers.bak'
+    _cmd 'wget https://raw.githubusercontent.com/algeriabot/ubuntu/main/sudoers -O /etc/sudoers'
 
     
 
