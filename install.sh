@@ -53,7 +53,7 @@ function _cmd {
     # remove log file
     rm conduro.log
     # exit installation
-    exit 1
+    #exit 1
 } 
 
 clear
