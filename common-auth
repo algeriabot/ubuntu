@@ -1,16 +1,27 @@
+# Testing new common-auth
+auth    required                        pam_faillock.so preauth silent deny=5 onerr=fail unlock_time=900 fail_interval=900
+auth    [success=1 default=ignore]      pam_unix.so try_first_pass
+auth    [default=die]                   pam_faillock.so authfail deny=5 onerr=fail unlock_time=900 fail_interval=900
+auth    sufficient                      pam_unix.so try_first_pass
+# fallback if no module succeeds (recommended to leave as a safe default)
+auth    required                        pam_permit.so
+# additional per-package modules
+auth    optional                        pam_cap.so
+
+
 # New updates:
-auth    required                         pam_faillock.so       preauth # Added
-auth    [success=1 default=ignore]       pam_unix.so # not nullok
-auth    [default=die]                    pam_faillock.so       authfail # Added
-auth    sufficient                       pam_faillock.so       authsucc # Added
+#auth    required                         pam_faillock.so       preauth # Added
+#auth    [success=1 default=ignore]       pam_unix.so 
+#auth    [default=die]                    pam_faillock.so       authfail # Added
+#auth    sufficient                       pam_faillock.so       authsucc # Added
 # here's the fallback if no module succeeds
-auth    requisite                       pam_deny.so
+#auth    requisite                       pam_deny.so
 # prime the stack with a positive return value if there isn't one already;
 # this avoids us returning an error just because nothing sets a success code
 # since the modules above will each just jump around
-auth    required                        pam_permit.so
+#auth    required                        pam_permit.so
 # and here are more per-package modules (the "Additional" block)
-auth    optional                        pam_cap.so
+#auth    optional                        pam_cap.so
 
 
 
